@@ -82,6 +82,10 @@ app.use((req,res,next)=>{
     next();
 });
 
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+});
+
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",userRouter);
@@ -98,4 +102,5 @@ app.use((err,req,res,next)=>{
 });
 app.listen(1111,()=>{
     console.log("server is connected to port 1111.");
+
 });
